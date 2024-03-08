@@ -26,15 +26,15 @@ public class TaskController {
         return new ResponseEntity<>(addedTask, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{taskId}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long taskId) {
-        taskService.deleteTask(taskId);
+    @DeleteMapping("/{taskName}")
+    public ResponseEntity<Void> deleteTask(@PathVariable String taskName) {
+        taskService.deleteTask(taskName);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/{taskId}/complete")
-    public ResponseEntity<Task> markTaskAsCompleted(@PathVariable Long taskId) {
-        Task updatedTask = taskService.markTaskAsCompleted(taskId);
+    @PutMapping("/{taskName}/complete")
+    public ResponseEntity<Task> markTaskAsCompleted(@PathVariable String taskName) {
+        Task updatedTask = taskService.markTaskAsCompleted(taskName);
         return new ResponseEntity<>(updatedTask, HttpStatus.OK);
     }
 }
