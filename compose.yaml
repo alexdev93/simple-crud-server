@@ -11,7 +11,9 @@ services:
       - my-network
 
   springboot-app:
-    image: server-side
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: springboot-container
     depends_on:
       - postgres
